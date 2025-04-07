@@ -37,7 +37,7 @@ sonar-scanner -Dsonar.login=sqa_01714030258bbcdde6974160a17915fb6b85b5e4
 
 1. File path "\Users\Usuario\Desktop\GIT\gestor-futbol-refactorizado" should match package name "practica_refactorizacion_casa". Move the file or change the package name.
 
-
+*Renombrar la carpeta del proyecto de "gestor-futbol-refactorizado" a* **practica_refactorizacion_casa**
 
 
 2. Refactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.
