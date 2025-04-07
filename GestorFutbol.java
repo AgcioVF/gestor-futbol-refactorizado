@@ -59,52 +59,64 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
         this.puntos = otro.puntos;
     }
 
+    private void procesarPuntos(String resultado) {
+        if (resultado.equals("victoria")) {
+            puntos += 3;
+            System.out.println("Victoria. Puntos acumulados: " + puntos);
+        } else if (resultado.equals("empate")) {
+            puntos += 1;
+            System.out.println("Empate. Puntos acumulados: " + puntos);
+        } else if (resultado.equals("derrota")) {
+            System.out.println("Derrota. Puntos acumulados: " + puntos);
+        }
+    }
+
+    private void procesarLocalizacion(String resultado) {
+        if (resultado.contains("local")) {
+            System.out.println("Jugado como local.");
+            if (resultado.length() > 10) {
+                System.out.println("Detalle adicional: " + resultado);
+            }
+        } else if (resultado.contains("visitante")) {
+            System.out.println("Jugado como visitante.");
+            if (resultado.length() > 8) {
+                System.out.println("Comentario: " + resultado);
+            }
+        }
+    }
+
+    private void clasificarPorLongitud(String resultado) {
+        switch (resultado.length()) {
+            case 7:
+                System.out.println("Resultado corto.");
+                break;
+            case 14:
+                System.out.println("Resultado medio.");
+                break;
+            default:
+                System.out.println("Resultado de longitud estándar.");
+                break;
+        }
+    }
+
+    private void detectarEnfasis(String resultado) {
+        if (resultado.endsWith("!")) {
+            System.out.println("¡Resultado enfatizado!");
+        }
+    }
+
     // Procesa la lista de resultados y actualiza los puntos del equipo
     public void procesarTemporada(List<String> resultados) {
         for (String resultado : resultados) {
+            procesarPuntos(resultado);
+            procesarLocalizacion(resultado);
+            clasificarPorLongitud(resultado);
+            detectarEnfasis(resultado);
 
-            // Se suman los puntos según el tipo de resultado
-            switch (resulado){
-                case "victoria" -> puntos+=3; System.out.println("Victoria. Puntos acumulados: " + puntos);
-                case "empate" -> puntos+=1; System.out.println("Empate. Puntos acumulados: " + puntos);
-                case "derrota" -> puntos+=3; System.out.println("Derrota. Puntos acumulados: " + puntos);
-            }
-
-            // Se muestra si el partido fue como local o visitante
-            if (resultado.contains("local")) {
-                System.out.println("Jugado como local.");
-                if (resultado.length() > 10) {
-                    System.out.println("Detalle adicional: " + resultado);
-                }
-            } else if (resultado.contains("visitante")) {
-                System.out.println("Jugado como visitante.");
-                if (resultado.length() > 8) {
-                    System.out.println("Comentario: " + resultado);
-                }
-            }
-
-            // Clasifica el resultado según su longitud
-            switch (resultado.length()) {
-                case 7:
-                    System.out.println("Resultado corto.");
-                    break;
-                case 14:
-                    System.out.println("Resultado medio.");
-                    break;
-                default:
-                    System.out.println("Resultado de longitud estándar.");
-                    break;
-            }
-
-            // Detecta si el resultado tiene un signo de énfasis (!)
-            if (resultado.endsWith("!")) {
-                System.out.println("¡Resultado enfatizado!");
-            }
-
-            // Separador visual entre partidos
             System.out.println("----------------------");
         }
     }
+
 
     // Método para comparar si dos objetos GestorFutbol representan el mismo equipo
     @Override
