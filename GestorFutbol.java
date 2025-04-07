@@ -3,7 +3,7 @@ package practica_refactorizacion_casa;
 import java.math.BigDecimal;
 import java.util.*;
 
-public class GestorFutbol implements Cloneable, Comparable<GestorFutbol> {
+public class GestorFutbol implements Comparable<GestorFutbol> {
 
     // Atributos del equipo
     public String equipoNombre;       // Nombre del equipo
@@ -52,6 +52,11 @@ public class GestorFutbol implements Cloneable, Comparable<GestorFutbol> {
     public GestorFutbol(String nombreEquipo) {
         this.equipoNombre = nombreEquipo;
         this.puntos = 0;
+    }
+
+    public GestorFutbol(GestorFutbol otro) {
+        this.equipoNombre = otro.nombreEquipo;
+        this.puntos = otro.puntos;
     }
 
     // Procesa la lista de resultados y actualiza los puntos del equipo
@@ -114,10 +119,7 @@ public class GestorFutbol implements Cloneable, Comparable<GestorFutbol> {
     }
 
     // Crea una copia del objeto actual
-    public clone(Object obj) {
-        Object clone = new Object();
-        this.clone = this.obj;
-    }
+
 
     // Compara dos objetos GestorFutbol por su nombre de equipo
     @Override
