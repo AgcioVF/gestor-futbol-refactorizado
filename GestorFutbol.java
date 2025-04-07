@@ -64,14 +64,10 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
         for (String resultado : resultados) {
 
             // Se suman los puntos según el tipo de resultado
-            if (resultado.equals("victoria")) {
-                puntos += 3;
-                System.out.println("Victoria. Puntos acumulados: " + puntos);
-            } else if (resultado.equals("empate")) {
-                puntos += 1;
-                System.out.println("Empate. Puntos acumulados: " + puntos);
-            } else if (resultado.equals("derrota")) {
-                System.out.println("Derrota. Puntos acumulados: " + puntos);
+            switch (resulado){
+                case "victoria" -> puntos+=3; System.out.println("Victoria. Puntos acumulados: " + puntos);
+                case "empate" -> puntos+=1; System.out.println("Empate. Puntos acumulados: " + puntos);
+                case "derrota" -> puntos+=3; System.out.println("Derrota. Puntos acumulados: " + puntos);
             }
 
             // Se muestra si el partido fue como local o visitante
@@ -117,9 +113,6 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
         GestorFutbol otro = (GestorFutbol) obj;
         return this.equipoNombre.equals(otro.equipoNombre);
     }
-
-    // Crea una copia del objeto actual
-
 
     // Compara dos objetos GestorFutbol por su nombre de equipo
     @Override
