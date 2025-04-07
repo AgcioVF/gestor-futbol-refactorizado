@@ -114,9 +114,9 @@ public class GestorFutbol implements Cloneable, Comparable<GestorFutbol> {
     }
 
     // Crea una copia del objeto actual
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public clone(Object obj) {
+        Object clone = new Object();
+        this.clone = this.obj;
     }
 
     // Compara dos objetos GestorFutbol por su nombre de equipo
