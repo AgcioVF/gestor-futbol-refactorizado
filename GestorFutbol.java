@@ -124,11 +124,16 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
         return this.equipoNombre.equals(otro.equipoNombre);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(equipoNombre);
+    }
+
     // Compara dos objetos GestorFutbol por su nombre de equipo
     @Override
     public int compareTo(GestorFutbol otro) {
         if (this.equipoNombre == null || otro.equipoNombre == null) {
-            return Integer.MIN_VALUE;
+            return -1;
         }
         return this.equipoNombre.compareTo(otro.equipoNombre);
     }

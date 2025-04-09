@@ -27,10 +27,10 @@ Para su correcta implementación también es necesario eliminar la implementaci�
 sonar.login=sqa_01714030258bbcdde6974160a17915fb6b85b5e4
 ```
 
-*Impementamos el token al comando* **sonar-scanner** *para aislarla del codigo:*
+*Impementamos el token al una* **variable de entorno** *para aislarla del codigo:*
 
 ```
-sonar-scanner -Dsonar.login=sqa_01714030258bbcdde6974160a17915fb6b85b5e4
+set SONAR_TOKEN=sqa_01714030258bbcdde6974160a17915fb6b85b5e4
 ```
 
 ## HIGH
@@ -60,3 +60,12 @@ private static final Logger logger = Logger.getLogger(GestorFutbol.class.getName
 logger.info();
 ```
 
+3. Sobrescribir el método hashCode()
+```
+@Override
+    public int hashCode() {
+        return Objects.hash(equipoNombre);
+    }
+```
+
+4. Modificar el método compareTo(GestorFutbol otro) para que devuelva -1

@@ -2,5 +2,5 @@ projectKey=gestor-futbol-refactorizado
 serverUrl=http://localhost:9000
 serverVersion=25.3.0.104237
 dashboardUrl=http://localhost:9000/dashboard?id=gestor-futbol-refactorizado
-ceTaskId=0e1d1de9-7fb8-4b34-91cf-09b53f95fc3b
-ceTaskUrl=http://localhost:9000/api/ce/task?id=0e1d1de9-7fb8-4b34-91cf-09b53f95fc3b
+ceTaskId=f46820ef-0ff2-4386-a3a3-d03f37dfcf76
+ceTaskUrl=http://localhost:9000/api/ce/task?id=f46820ef-0ff2-4386-a3a3-d03f37dfcf76
