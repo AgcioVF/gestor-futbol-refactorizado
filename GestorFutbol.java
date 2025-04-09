@@ -6,15 +6,12 @@ import java.util.*;
 public class GestorFutbol implements Comparable<GestorFutbol> {
 
     // Atributos del equipo
-    public String equipoNombre;       // Nombre del equipo
-    public int puntos;                // Puntos acumulados por el equipo
+    private String equipoNombre;       // Nombre del equipo
+    private int puntos;                // Puntos acumulados por el equipo
 
     // Variable estática para contar los partidos jugados en total
-    public static int partidosTotales = 0;
 
     // Constantes para los nombres de equipos conocidos
-    private static String NOMBRE_REAL_MADRID = "Real Madrid club de Fútbol";
-    private static String NOMBRE_ATLETICO_MADRID = "Atlético de Madrid";
 
     public static void main(String[] args) {
         // Se crea una instancia del equipo principal con su nombre
