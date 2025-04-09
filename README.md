@@ -48,4 +48,15 @@ sonar-scanner -Dsonar.login=sqa_01714030258bbcdde6974160a17915fb6b85b5e4
 ## MEDIUM // LOW
 
 1. Varias de esta issues eran solucionables mediante la eliminación, en caso de no ser variables o elementos usados, o bajo una leve modificación para adaptar su sintaxis al resto del código.
-2. 
+
+
+2. Cambio de SYSO a Logger, el cual debe declararse previo al main como una variable privada, estática y final (constante):
+```
+System.out.println();
+```
+
+```
+private static final Logger logger = Logger.getLogger(GestorFutbol.class.getName());
+logger.info();
+```
+

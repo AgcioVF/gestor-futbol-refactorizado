@@ -9,6 +9,9 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
     private String equipoNombre;       // Nombre del equipo
     private int puntos;                // Puntos acumulados por el equipo
 
+    // Logger
+    private static final Logger logger = Logger.getLogger(GestorFutbol.class.getName());
+
     // Variable estática para contar los partidos jugados en total
 
     // Constantes para los nombres de equipos conocidos
@@ -28,10 +31,8 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
         equipoPrincipal.procesarTemporada(resultadosTemporada);
 
         // Conversión de la lista de resultados a array
-        Object[] resultadosArray = resultadosTemporada.toArray();
 
         // Se crea un objeto para representar el presupuesto del equipo
-        BigDecimal presupuestoEstimado = new BigDecimal(123456.78);
 
         // Verificación de si hay resultados y salida del programa si se cumple
         if (resultadosTemporada != null && !resultadosTemporada.isEmpty()) {
@@ -42,7 +43,7 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
         GestorFutbol otroEquipo = new GestorFutbol("Real Madrid");
 
         // Comparación entre dos equipos (por nombre)
-        System.out.println("Comparación entre equipos: " + equipoPrincipal.compareTo(otroEquipo));
+        logger.info("Comparación entre equipos: " + equipoPrincipal.compareTo(otroEquipo));
     }
 
     // Constructor que inicializa el equipo con su nombre y puntos en 0
@@ -59,25 +60,25 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
     private void procesarPuntos(String resultado) {
         if (resultado.equals("victoria")) {
             puntos += 3;
-            System.out.println("Victoria. Puntos acumulados: " + puntos);
+            logger.info("Victoria. Puntos acumulados: " + puntos);
         } else if (resultado.equals("empate")) {
             puntos += 1;
-            System.out.println("Empate. Puntos acumulados: " + puntos);
+            logger.info("Empate. Puntos acumulados: " + puntos);
         } else if (resultado.equals("derrota")) {
-            System.out.println("Derrota. Puntos acumulados: " + puntos);
+            logger.info("Derrota. Puntos acumulados: " + puntos);
         }
     }
 
     private void procesarLocalizacion(String resultado) {
         if (resultado.contains("local")) {
-            System.out.println("Jugado como local.");
+            logger.info("Jugado como local.");
             if (resultado.length() > 10) {
-                System.out.println("Detalle adicional: " + resultado);
+                logger.info("Detalle adicional: " + resultado);
             }
         } else if (resultado.contains("visitante")) {
-            System.out.println("Jugado como visitante.");
+            logger.info("Jugado como visitante.");
             if (resultado.length() > 8) {
-                System.out.println("Comentario: " + resultado);
+                logger.info("Comentario: " + resultado);
             }
         }
     }
@@ -85,20 +86,20 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
     private void clasificarPorLongitud(String resultado) {
         switch (resultado.length()) {
             case 7:
-                System.out.println("Resultado corto.");
+                logger.info("Resultado corto.");
                 break;
             case 14:
-                System.out.println("Resultado medio.");
+                logger.info("Resultado medio.");
                 break;
             default:
-                System.out.println("Resultado de longitud estándar.");
+                logger.info("Resultado de longitud estándar.");
                 break;
         }
     }
 
     private void detectarEnfasis(String resultado) {
         if (resultado.endsWith("!")) {
-            System.out.println("¡Resultado enfatizado!");
+            logger.info("¡Resultado enfatizado!");
         }
     }
 
@@ -110,7 +111,7 @@ public class GestorFutbol implements Comparable<GestorFutbol> {
             clasificarPorLongitud(resultado);
             detectarEnfasis(resultado);
 
-            System.out.println("----------------------");
+            logger.info("----------------------");
         }
     }
 
